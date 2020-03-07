@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions";
-/* import { library } from "@fortawesome/fontawesome-svg-core";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
   faCheckSquare,
@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-library.add(fab, faCheckSquare, faCoffee); */
+library.add(fab, faCheckSquare, faCoffee); 
 
 class App extends Component {
   componentDidMount() {
@@ -22,12 +22,12 @@ class App extends Component {
     return (
       <div className="app-wrapper">
         <header>
-          <h1 className="title">Welcome to Smurfs</h1>
+          <h1 className="title">Smurfs</h1>
         </header>
         {this.props.fetchingSmurfs ? (
           <h3>
             We're fetching your smurfs...
-            {/* <FontAwesomeIcon icon={faHatCowboy} */} />
+             <FontAwesomeIcon icon={faHatCowboy}  />
           </h3>
         ) : (
           <div className="smurfs card">

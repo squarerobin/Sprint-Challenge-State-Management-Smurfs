@@ -36,10 +36,10 @@ class App extends Component {
                 <div key={Date.now() * Math.random()} className="card is-child">
                   {/* <span className="tag is-danger ">{smurf.type}</span> */}
 
-                  <p className="setup">{smurf.name}</p>
-                  <p className="punchline">{smurf.age}</p>
-                  <p className="setup">{smurf.height}</p>
-                  <p className="setup">{smurf.id}</p>
+                  <p className="name">{`Name: ${smurf.name}`}</p>
+                  <p className="age">{`Age: ${smurf.age}`}</p>
+                  <p className="height">{`Height: ${smurf.height}`}</p>
+                  <p className="id">{`Id: ${smurf.id}`}</p>
                 </div>
               );
             })}

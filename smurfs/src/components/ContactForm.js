@@ -34,7 +34,7 @@ const ContactForm = () => {
           <label htmlFor="name">Name*</label>
           <input
             name="name"
-            placeholder="bill" //bug fixed here: the place holder was in the label above
+            placeholder="Enter your name here"  
             required="required"
             ref={register({ required: true, maxLength: 12 })} //max length was too short
           />
@@ -68,20 +68,12 @@ const ContactForm = () => {
             <p>Looks like there was an error: {errors.email.type}</p>
           )}
         </div>
-        {/* <div>
-          <label htmlFor="message">Message</label>
-          <textarea
-            name="message"
-            data-testid="textarea"
-            ref={register({ required: false })}
-            
-          />
-        </div> */}
-        {data && (
+   
+     {/*    {data && (
           <pre style={{ textAlign: "left", color: "white" }}>
             {JSON.stringify(data, null, 2)}
           </pre>
-        )}
+        )} */}
         <input type="submit" />
       </form>
     </div>

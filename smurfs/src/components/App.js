@@ -9,12 +9,7 @@ import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab, faSuperpowers } from "@fortawesome/free-brands-svg-icons";
-import {
-  faCheckSquare,
-  faCoffee,
-  faHatCowboy,
-  faSadCry
-} from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 library.add(fab, faSuperpowers); 

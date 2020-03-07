@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios"
 import { useForm } from "react-hook-form";
 
 const ContactForm = () => {
-  const [ setData] = useState();
-  const { register, errors, handleSubmit } = useForm({
+  const [data, setData] = useState();
+  const { register, errors, handleSubmit, reset } = useForm({
     mode: "onBlur"
   });
   

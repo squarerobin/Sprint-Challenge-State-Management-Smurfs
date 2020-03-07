@@ -1,5 +1,10 @@
 import React, { Component } from "react";
+import ContactForm from "../components/ContactForm";
+
 import "./App.css";
+
+
+
 import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -40,6 +45,10 @@ class App extends Component {
                   <p className="age">{`Age: ${smurf.age}`}</p>
                   <p className="height">{`Height: ${smurf.height}`}</p>
                   <p className="id">{`Id: ${smurf.id}`}</p>
+
+                  <ContactForm />
+
+
                 </div>
               );
             })}

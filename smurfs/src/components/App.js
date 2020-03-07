@@ -8,15 +8,16 @@ import "./App.css";
 import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fab, faSuperpowers } from "@fortawesome/free-brands-svg-icons";
 import {
   faCheckSquare,
   faCoffee,
-  faHatCowboy
+  faHatCowboy,
+  faSadCry
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-library.add(fab, faCheckSquare, faCoffee); 
+library.add(fab, faSuperpowers); 
 
 class App extends Component {
   componentDidMount() {
@@ -27,12 +28,13 @@ class App extends Component {
     return (
       <div className="app-wrapper">
         <header>
-          <h1 className="title">Smurfs</h1>
+          <h1 className="title"><FontAwesomeIcon icon={faSuperpowers} /> Smurfs <FontAwesomeIcon icon={faSuperpowers} /></h1>
+          
         </header>
         {this.props.fetchingSmurfs ? (
           <h3>
             We're fetching your smurfs...
-             <FontAwesomeIcon icon={faHatCowboy}  />
+             <FontAwesomeIcon icon={faSuperpowers}  />
           </h3>
         ) : (
           <div className="smurfs card">
@@ -46,12 +48,13 @@ class App extends Component {
                   <p className="height">{`Height: ${smurf.height}`}</p>
                   <p className="id">{`Id: ${smurf.id}`}</p>
 
-                  <ContactForm />
+                  
 
 
                 </div>
               );
             })}
+            <ContactForm />
           </div>
         )}
         {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}

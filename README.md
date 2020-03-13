@@ -34,7 +34,7 @@ Reducers is the how the action is going to be performed, the function that will 
 
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
-ContextAPI. Because it saved me from having to pass props all over the place.
+ContextAPI. Because it saves us from having to pass props all over the place.
 I have worked more with Redux so far, and this is why I chose it over ContextAPI for this Sprint.
 
 ## Project Set Up

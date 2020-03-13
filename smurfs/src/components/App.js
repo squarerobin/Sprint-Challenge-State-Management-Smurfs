@@ -1,16 +1,71 @@
 import React, { Component } from "react";
+import ContactForm from "../components/ContactForm";
+
 import "./App.css";
+
+
+
+import { connect } from "react-redux";
+import { fetchSmurfs } from "../actions";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab, faSuperpowers } from "@fortawesome/free-brands-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+library.add(fab, faSuperpowers); 
+
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchSmurfs();
+  }
+
   render() {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+      <div className="app-wrapper">
+        <header>
+          <h1 className="title"><FontAwesomeIcon icon={faSuperpowers} /> Smurfs <FontAwesomeIcon icon={faSuperpowers} /></h1>
+          
+        </header>
+        {this.props.fetchingSmurfs ? (
+          <h3>
+            We're fetching your smurfs...
+             <FontAwesomeIcon icon={faSuperpowers}  />
+          </h3>
+        ) : (
+          <div className="smurfs card">
+            {this.props.smurfs.map(smurf => {
+              return (
+                <div key={Date.now() * Math.random()} className="card is-child">
+                  {/* <span className="tag is-danger ">{smurf.type}</span> */}
+
+                  <p className="name">{`Name: ${smurf.name}`}</p>
+                  <p className="age">{`Age: ${smurf.age}`}</p>
+                  <p className="height">{`Height: ${smurf.height}`}</p>
+                  <p className="id">{`Id: ${smurf.id}`}</p>
+
+                  
+
+
+                </div>
+              );
+            })}
+            <ContactForm />
+          </div>
+        )}
+        {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    // our state machine is working for us based on fetching, success, and error. lets make sure our component knows about the state machine
+    smurfs: state.smurfs, // smurfs for when we have the data!
+    smurf: state.smurf,
+    error: state.error, // error for when we mispell something!
+    fetchingSmurfs: state.fetchingSmurfs // pending state, the fetching spinner or loading message etc. for when we're fetching!
+  };
+};
+
+export default connect(mapStateToProps, { fetchSmurfs })(App);
